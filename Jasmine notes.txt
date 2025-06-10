@@ -1,0 +1,148 @@
+what is Jasmine Framework?
+
+Jasmine is Testing framework for javascript?
+
+It provides to write test cases
+It provides to run tests
+It provides Matcher like toBe() , ToEqual() to verify expected results
+
+
+Key features of Jasmine?
+
+BDD style ---  Behaviour Driven  
+
+Describe-It-Expect format describe , it, expect
+
+for describe()---groups related test cases
+
+A. function describe(description: string, specDefinitions: () => void): void
+
+Create a group of specs (often called a suite).
+
+@param description — Textual description of the group
+
+@param specDefinitions — Function for Jasmine to invoke that will define inner suites a specs
+
+
+B.it()  ---defines a single test case
+
+
+function it(expectation: string, assertion?: jasmine.ImplementationCallback, timeout?: number): void
+Define a single spec. A spec should contain one or more expectations that test the state of the code. A spec whose expectations all succeed will be passing and a spec with any failures will fail.
+
+@param expectation — Textual description of what this spec is checking
+
+@param assertion — Function that contains the code of your test. If not provided the test will be pending.
+
+@param timeout — Custom timeout for an async spec.
+
+
+C. expect() ----Assert the expected outcomes
+
+D.beforeEach()  and afterEach()---setup and teardown login before/after each test
+
+It run standalone , not need DOM or browser
+
+Spies---functions to mock method call like spy()
+
+Ansychonous support----built in code to test async
+
+
+
+
+**********************************************************************************
+
+
+
+what is Karma?
+karma is the test runner in javascript
+
+**********************************************************************************
+What is TestBed?
+
+TestBed is Angular's API for writing unit test for components, services, directives, pipes .
+
+It provides test environment to test how angular creates and manages components and dependency injection at runtime
+
+TestBed allowes us to configure custom test modules like an @NgModule
+
+Commonly used TestBed API
+
+1.configureTestingModules()  ----set up testing module by declaring components, pipes, services
+
+2. compileComponents()---->Compiles component template(html) and style(css)
+
+3.createComponent----->instantiate a component and returns a componentFixture
+
+4.inject()----retrieves an instances of service
+
+5.resetTestingModule()----->Resets the state of the testing environment after tests complete
+
+ ********************************************************************************
+
+What is fixture?
+
+In Angular unit testing(Jasmine + TestBed) a fixture is an object that wraps a component and gives access to both component instances ,rendered DOM  and change detection mechanisam
+
+
+**************************************************
+
+async and await   in java script or type script
+
+They are used with Promises to simplify writing asynchronous code
+
+Asynchronous code allowes a programmer to
+i)start task
+ii)continue execution other code while the task completes in the background
+iii)wait for the result when it needed
+
+aync function myFun()
+{
+
+}
+
+this function alaways returns a Promise
+
+you can use await() inside it
+
+like  for example
+
+async function fetchData()
+{
+const data= await getDataFromServer(); // wait here
+console.log)data; only run after data is fetched
+}
+
+
+beforeEach(async ()=>
+{
+await TestBed.configureTestingModules({
+declarations : [CalculatorComponent],
+providers:[CalculatorService]
+
+}).compileComponents();
+
+});
+
+1.compileComponens() returns a Promise.
+2.we need to wait for it to finish before running test
+
+3. so we make beforeEach() an async function
+4.inside it, we await the compileComponents() call
+
+
+
+******************************************************************
+
+what is SPy?
+when we want to mock a method
+when we want to check interaction
+
+in jasmine framework  a spu function that tracks calls to another function
+
+It allows us to,
+1.Monitor whether a method was called
+2.Chech how it called and what return
+3.avoid executing actual implementation
+
+
