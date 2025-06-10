@@ -1,0 +1,69 @@
+What is Node.js?
+Node.js is an open-source, cross-platform runtime environment that allows you to run JavaScript code on the server side.
+
+
+Server-Side JavaScript Runtime: Traditionally, JavaScript was used exclusively in the browser. Node.js extends JavaScript to the server, allowing developers to build complete web applications using a single language across the stack.
+
+Built on V8 Engine: Node.js is powered by Google’s V8 JavaScript engine, which compiles JavaScript directly into machine code. This leads to high performance when executing code.
+
+Event-Driven Architecture: Node.js uses an event-driven, non-blocking I/O model. This means instead of waiting for an operation (like reading a file or querying a database) to finish before moving to the next task,
+
+Package Ecosystem (NPM): Node.js comes with npm (Node Package Manager), one of the largest ecosystems of
+ open-source libraries
+
+Modules in Node.js
+OS (os) Module
+Purpose: Provides operating system-related utility methods and properties. This can be useful for gathering system information.
+
+Common Use Cases:
+
+Determining system memory, CPU details, or network interfaces.
+
+Example Usage:
+
+js
+const os = require('os');
+
+console.log('OS Platform: ', os.platform());
+console.log('OS CPU Architecture: ', os.arch());
+console.log('Total Memory: ', os.totalmem());
+console.log('Free Memory: ', os.freemem());
+____________________________________________________________________________________________________
+7. Crypto (crypto) Module
+Purpose: Provides cryptographic functionality to handle encryption, decryption, and creating secure hashes.
+
+Common Use Cases:
+
+Generating hashes for passwords.
+
+Encrypting and decrypting data securely.
+
+Example Usage:
+
+js
+const crypto = require('crypto');
+
+// Create an MD5 hash of a string
+const hash = crypto.createHash('md5').update('password123').digest('hex');
+console.log(`Hash: ${hash}`
+);
+_____________________________________________________________________________________________________________
+8. Stream Module
+Purpose: Allows efficient handling of streaming data, including reading from and writing to data sources like files or network sockets.
+
+Common Use Cases:
+
+Processing large files without loading them entirely into memory.
+
+Building real-time data pipelines.
+
+Example Usage:
+
+js
+const fs = require('fs');
+
+// Create a read stream to process a file in chunks
+const readStream = fs.createReadStream('largeFile.txt', 'utf8');
+readStream.on('data', (chunk) => {
+  console.log('Received chunk:', chunk);
+});
